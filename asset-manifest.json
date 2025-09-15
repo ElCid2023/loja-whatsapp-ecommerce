@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/loja-whatsapp-ecommerce/static/css/main.28ace601.css",
+    "main.js": "/loja-whatsapp-ecommerce/static/js/main.dbe2a630.js",
+    "index.html": "/loja-whatsapp-ecommerce/index.html",
+    "main.28ace601.css.map": "/loja-whatsapp-ecommerce/static/css/main.28ace601.css.map",
+    "main.dbe2a630.js.map": "/loja-whatsapp-ecommerce/static/js/main.dbe2a630.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.28ace601.css",
+    "static/js/main.dbe2a630.js"
+  ]
+}
