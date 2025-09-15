@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovidadeSP - Loja WhatsApp Ecommerce</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .container { max-width: 800px; padding: 2rem; text-align: center; }
+        .card { background: rgba(255,255,255,0.95); padding: 3rem; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
+        h1 { font-size: 3rem; margin-bottom: 1rem; color: #333; }
+        p { font-size: 1.3rem; margin-bottom: 2rem; color: #666; }
+        .btn { display: inline-block; padding: 15px 30px; margin: 10px; background: #25D366; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease; }
+        .btn:hover { background: #128C7E; transform: translateY(-3px); }
+        .btn-secondary { background: #007bff; }
+        .btn-secondary:hover { background: #0056b3; }
+        .btn-warning { background: #ffc107; color: #333; }
+        .btn-warning:hover { background: #e0a800; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .loading { font-size: 1.1rem; color: #666; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🛍️ NovidadeSP</h1>
+            <p>Loja Virtual Integrada com WhatsApp Business</p>
+            
+            <div class="grid">
+                <a href="#" onclick="acessarLoja()" class="btn">🏪 Acessar Loja</a>
+                <a href="upload-github.html" class="btn" style="background: #333;">🚀 Upload GitHub</a>
+                <a href="admin.html" class="btn" style="background: #ff6b6b;">🔧 Admin (Sem Código)</a>
+                <a href="TUTORIAL.html" class="btn btn-secondary">📖 Tutorial</a>
+                <a href="GUIA_AFILIADOS.html" class="btn btn-warning">💰 Guia Afiliados</a>
+            </div>
+            
+            <div class="loading">
+                <p>📱 Sistema de Afiliados • 🎵 Sugestões TikTok • 💬 WhatsApp Integrado</p>
+                <div id="status" style="margin-top: 1rem; font-weight: bold;"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function acessarLoja() {
+            // Tentar diferentes caminhos possíveis
+            const caminhos = [
+                './build/index.html',
+                'build/index.html',
+                'client/build/index.html',
+                './client/build/index.html'
+            ];
+            
+            document.getElementById('status').innerHTML = '🔍 Procurando loja...';
+            
+            // Verificar se existe build da loja
+            fetch(caminhos[0])
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = caminhos[0];
+                    } else {
+                        throw new Error('Build não encontrado');
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('status').innerHTML = '⚠️ Loja não encontrada. Execute: cd client && npm run build';
+                });
+        }
+        
+        // Verificar automaticamente se a loja existe
+        window.onload = function() {
+            fetch('./build/index.html')
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById('status').innerHTML = '✅ Loja pronta! Clique para acessar.';
+                    } else {
+                        throw new Error('Build não encontrado');
+                    }
+                })
+                .catch(() => {
+                    document.getElementById('status').innerHTML = '⚠️ Execute primeiro: cd client && npm run build';
+                });
+        };
+    </script>
+</body>
+</html>

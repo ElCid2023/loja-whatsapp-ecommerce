@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial Completo - Loja WhatsApp Ecommerce</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: #f4f4f4; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; border-radius: 10px; margin-bottom: 2rem; }
+        .section { background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .code { background: #f8f9fa; padding: 1rem; border-radius: 5px; border-left: 4px solid #007bff; margin: 1rem 0; font-family: monospace; overflow-x: auto; }
+        .warning { background: #fff3cd; border: 1px solid #ffeaa7; padding: 1rem; border-radius: 5px; margin: 1rem 0; }
+        .success { background: #d4edda; border: 1px solid #c3e6cb; padding: 1rem; border-radius: 5px; margin: 1rem 0; }
+        .step { background: #e3f2fd; padding: 1rem; margin: 1rem 0; border-radius: 5px; border-left: 4px solid #2196f3; }
+        h1, h2, h3 { margin-bottom: 1rem; }
+        h2 { color: #667eea; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
+        ul, ol { margin-left: 2rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        .btn { display: inline-block; padding: 10px 20px; background: #25D366; color: white; text-decoration: none; border-radius: 5px; margin: 5px; }
+        .btn:hover { background: #128C7E; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .highlight { background: yellow; padding: 2px 4px; }
+        .emoji { font-size: 1.2em; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🛍️ Tutorial Completo - Loja WhatsApp Ecommerce</h1>
+            <p>Guia detalhado passo a passo - Do zero ao lucro online</p>
+            <div style="margin-top: 1rem; font-size: 1.1rem;">
+                ⏱️ Tempo estimado: 30-45 minutos | 🎯 Nível: Iniciante | 💰 Custo: Gratuito
+            </div>
+        </div>
+
+        <!-- ÍNDICE -->
+        <div class="section">
+            <h2>📋 Índice Completo</h2>
+            <div class="grid">
+                <div>
+                    <h3>🎆 Primeiros Passos</h3>
+                    <ol>
+                        <li><a href="#introducao">🎆 Introdução e Visão Geral</a></li>
+                        <li><a href="#requisitos">📋 Pré-requisitos</a></li>
+                        <li><a href="#estrutura">📁 Entendendo a Estrutura</a></li>
+                        <li><a href="#admin">🔧 Interface Admin (Sem Código)</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>🚀 Deploy e Configuração</h3>
+                    <ol start="5">
+                        <li><a href="#github">🚀 Criar Conta GitHub</a></li>
+                        <li><a href="#deploy">🌐 Deploy no GitHub Pages</a></li>
+                        <li><a href="#dominio">🌍 Domínio Personalizado</a></li>
+                        <li><a href="#ssl">🔒 Certificado SSL</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>📦 Gerenciamento</h3>
+                    <ol start="9">
+                        <li><a href="#produtos">📦 Gerenciar Produtos</a></li>
+                        <li><a href="#configuracoes">⚙️ Configurações da Loja</a></li>
+                        <li><a href="#afiliados">💰 Sistema de Afiliados</a></li>
+                        <li><a href="#whatsapp">📱 Configurar WhatsApp</a></li>
+                    </ol>
+                </div>
+                <div>
+                    <h3>📈 Avançado</h3>
+                    <ol start="13">
+                        <li><a href="#marketing">📱 Estratégias de Marketing</a></li>
+                        <li><a href="#analytics">📈 Google Analytics</a></li>
+                        <li><a href="#seo">🔍 SEO e Otimização</a></li>
+                        <li><a href="#manutencao">🔧 Manutenção</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTRODUÇÃO -->
+        <div class="section" id="introducao">
+            <h2>🎆 Introdução e Visão Geral</h2>
+            
+            <h3>🎯 O que é esta loja?</h3>
+            <p>Esta é uma <strong>loja virtual completa</strong> que funciona integrada com WhatsApp Business. Ela permite:</p>
+            <ul>
+                <li>🛍️ <strong>Catálogo de produtos</strong> com imagens e preços</li>
+                <li>💰 <strong>Links de afiliados</strong> para Shopee, Mercado Livre e Amazon</li>
+                <li>📱 <strong>Integração WhatsApp</strong> para vendas diretas</li>
+                <li>🎵 <strong>Sugestões TikTok</strong> para marketing de conteúdo</li>
+                <li>📱 <strong>Design responsivo</strong> (funciona em celular e desktop)</li>
+            </ul>
+
+            <h3>💰 Modelos de Negócio</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>💰 Marketing de Afiliados</h4>
+                    <p>Ganhe comissão promovendo produtos de terceiros</p>
+                    <p><strong>Lucro:</strong> 2% a 12% por venda</p>
+                    <p><strong>Investimento:</strong> Zero</p>
+                </div>
+                <div class="card">
+                    <h4>🛍️ Dropshipping</h4>
+                    <p>Venda produtos sem estoque</p>
+                    <p><strong>Lucro:</strong> 20% a 50% por venda</p>
+                    <p><strong>Investimento:</strong> Baixo</p>
+                </div>
+                <div class="card">
+                    <h4>🏢 Loja Física</h4>
+                    <p>Complemente sua loja física</p>
+                    <p><strong>Lucro:</strong> Margem do produto</p>
+                    <p><strong>Investimento:</strong> Estoque</p>
+                </div>
+            </div>
+
+            <h3>📈 Potencial de Lucro</h3>
+            <table>
+                <tr>
+                    <th>Cenário</th>
+                    <th>Vendas/Mês</th>
+                    <th>Ticket Médio</th>
+                    <th>Comissão</th>
+                    <th>Lucro Mensal</th>
+                </tr>
+                <tr>
+                    <td>Iniciante</td>
+                    <td>10 vendas</td>
+                    <td>R$ 500</td>
+                    <td>5%</td>
+                    <td>R$ 250</td>
+                </tr>
+                <tr>
+                    <td>Intermediário</td>
+                    <td>50 vendas</td>
+                    <td>R$ 800</td>
+                    <td>7%</td>
+                    <td>R$ 2.800</td>
+                </tr>
+                <tr>
+                    <td>Avançado</td>
+                    <td>200 vendas</td>
+                    <td>R$ 1.200</td>
+                    <td>10%</td>
+                    <td>R$ 24.000</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- PRÉ-REQUISITOS -->
+        <div class="section" id="requisitos">
+            <h2>📋 Pré-requisitos</h2>
+            
+            <h3>💻 O que você precisa ter:</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>💻 Computador</h4>
+                    <p>Windows, Mac ou Linux</p>
+                    <p>Conexão com internet</p>
+                    <p>Navegador atualizado</p>
+                </div>
+                <div class="card">
+                    <h4>📱 WhatsApp Business</h4>
+                    <p>Conta WhatsApp Business</p>
+                    <p>Número de telefone</p>
+                    <p>Perfil comercial configurado</p>
+                </div>
+                <div class="card">
+                    <h4>🌐 Conta GitHub</h4>
+                    <p>Conta gratuita no GitHub</p>
+                    <p>Para hospedar a loja</p>
+                    <p>100% gratuito</p>
+                </div>
+                <div class="card">
+                    <h4>💰 Contas de Afiliados</h4>
+                    <p>Shopee Afiliados</p>
+                    <p>Mercado Livre Afiliados</p>
+                    <p>Amazon Associados</p>
+                </div>
+            </div>
+
+            <h3>📅 Tempo necessário:</h3>
+            <ul>
+                <li>⏱️ <strong>Configuração inicial:</strong> 30-45 minutos</li>
+                <li>⏱️ <strong>Personalização:</strong> 1-2 horas</li>
+                <li>⏱️ <strong>Adição de produtos:</strong> 5 minutos por produto</li>
+                <li>⏱️ <strong>Manutenção:</strong> 15 minutos por semana</li>
+            </ul>
+        </div>
+
+        <!-- ESTRUTURA -->
+        <div class="section" id="estrutura">
+            <h2>📁 Entendendo a Estrutura</h2>
+            
+            <h3>📁 Arquivos Principais:</h3>
+            <div class="code">
+Loja/
+├── index.html              ← Página inicial
+├── admin.html              ← Interface de gerenciamento
+├── TUTORIAL.html           ← Este tutorial
+├── GUIA_AFILIADOS.html     ← Guia de afiliados
+├── client/                 ← Aplicativo React
+│   ├── src/
+│   │   ├── data/
+│   │   │   └── products.js  ← Banco de dados dos produtos
+│   │   ├── pages/
+│   │   │   ├── Home.js      ← Página inicial
+│   │   │   ├── Products.js  ← Catálogo
+│   │   │   └── Affiliate.js ← Hub de afiliados
+│   │   └── components/
+│   │       └── Header.js    ← Menu de navegação
+│   └── build/              ← Versão final (gerada)
+└── routes/                 ← APIs do servidor (opcional)
+            </div>
+
+            <h3>🔄 Como funciona:</h3>
+            <div class="step">
+                <h4>1. Usuário acessa a loja</h4>
+                <p>Pelo link do GitHub Pages ou domínio personalizado</p>
+            </div>
+            <div class="step">
+                <h4>2. Navega pelos produtos</h4>
+                <p>Vê catálogo, preços e descrições</p>
+            </div>
+            <div class="step">
+                <h4>3. Clica em "WhatsApp"</h4>
+                <p>Mensagem pré-formatada com links de afiliados</p>
+            </div>
+            <div class="step">
+                <h4>4. Conversa no WhatsApp</h4>
+                <p>Você atende e finaliza a venda</p>
+            </div>
+            <div class="step">
+                <h4>5. Cliente compra pelo link</h4>
+                <p>Você ganha comissão automaticamente</p>
+            </div>
+        </div>
+
+        <!-- INTERFACE ADMIN -->
+        <div class="section" id="admin">
+            <h2>🔧 Interface Admin (Sem Código)</h2>
+            
+            <div class="success">
+                <strong>✨ Novidade!</strong> Agora você pode gerenciar sua loja sem tocar em código!
+            </div>
+
+            <h3>🎯 Como acessar:</h3>
+            <div class="step">
+                <h4>1. Abra o arquivo admin.html</h4>
+                <p>Clique duplo no arquivo <code>admin.html</code> na pasta da loja</p>
+            </div>
+            <div class="step">
+                <h4>2. Interface visual</h4>
+                <p>Você verá uma interface similar ao Wix ou WordPress</p>
+            </div>
+
+            <h3>📦 Aba Produtos:</h3>
+            <ul>
+                <li>➕ <strong>Adicionar produtos:</strong> Formulário simples com todos os campos</li>
+                <li>✏️ <strong>Editar produtos:</strong> Clique em "Editar" em qualquer produto</li>
+                <li>🗑️ <strong>Excluir produtos:</strong> Botão "Excluir" com confirmação</li>
+                <li>📋 <strong>Lista visual:</strong> Todos os produtos em cards organizados</li>
+            </ul>
+
+            <h3>⚙️ Aba Configurações:</h3>
+            <ul>
+                <li>🏢 <strong>Nome da loja:</strong> Aparece no cabeçalho</li>
+                <li>📱 <strong>WhatsApp:</strong> Número para receber mensagens</li>
+                <li>📧 <strong>Email:</strong> Contato da loja</li>
+                <li>📷 <strong>Redes sociais:</strong> Instagram e TikTok</li>
+            </ul>
+
+            <h3>💰 Aba Afiliados:</h3>
+            <ul>
+                <li>🔗 <strong>IDs de afiliados:</strong> Configure seus IDs das plataformas</li>
+                <li>📋 <strong>Links de cadastro:</strong> Links diretos para se cadastrar</li>
+                <li>📈 <strong>Dicas de otimização:</strong> Como melhorar suas comissões</li>
+            </ul>
+
+            <h3>📤 Aba Exportar:</h3>
+            <div class="step">
+                <h4>1. Clique em "Gerar Código"</h4>
+                <p>O sistema gera automaticamente o código com suas alterações</p>
+            </div>
+            <div class="step">
+                <h4>2. Copie o código</h4>
+                <p>Botão "Copiar Código" copia tudo para área de transferência</p>
+            </div>
+            <div class="step">
+                <h4>3. Substitua o arquivo</h4>
+                <p>Cole no arquivo <code>client/src/data/products.js</code></p>
+            </div>
+            <div class="step">
+                <h4>4. Faça o deploy</h4>
+                <p>Execute os comandos de deploy para atualizar a loja</p>
+            </div>
+        </div>
+
+        <!-- GITHUB CONTA -->
+        <div class="section" id="github">
+            <h2>🚀 Criar Conta GitHub</h2>
+            
+            <h3>🎯 Por que GitHub?</h3>
+            <ul>
+                <li>🆓 <strong>Gratuito:</strong> Hospedagem 100% gratuita</li>
+                <li>🔒 <strong>Confiável:</strong> Usado por milhões de desenvolvedores</li>
+                <li>⚡ <strong>Rápido:</strong> Servidores otimizados globalmente</li>
+                <li>🔄 <strong>Versionamento:</strong> Histórico de todas as alterações</li>
+                <li>🌍 <strong>Domínio:</strong> Seu próprio subdomínio .github.io</li>
+            </ul>
+
+            <div class="step">
+                <h4>1. Acesse github.com</h4>
+                <p>Abra <a href="https://github.com" target="_blank">github.com</a> no seu navegador</p>
+            </div>
+            <div class="step">
+                <h4>2. Clique em "Sign up"</h4>
+                <p>Botão verde no canto superior direito</p>
+            </div>
+            <div class="step">
+                <h4>3. Preencha os dados</h4>
+                <ul>
+                    <li><strong>Username:</strong> Escolha um nome único (será parte da URL)</li>
+                    <li><strong>Email:</strong> Seu email principal</li>
+                    <li><strong>Password:</strong> Senha forte (mínimo 8 caracteres)</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h4>4. Verifique o email</h4>
+                <p>GitHub enviará um email de confirmação</p>
+            </div>
+            <div class="step">
+                <h4>5. Escolha o plano gratuito</h4>
+                <p>"Free" é suficiente para sua loja</p>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Dica importante:</strong><br>
+                Escolha um username profissional, pois ele aparecerá na URL da sua loja:<br>
+                <code>https://SEU_USERNAME.github.io/loja-whatsapp-ecommerce</code>
+            </div>
+        </div>
+
+        <!-- DEPLOY GITHUB -->
+        <div class="section" id="deploy">
+            <h2>🚀 Como Subir no GitHub Pages</h2>
+            
+            <div class="step">
+                <h3>Passo 1: Criar Repositório no GitHub</h3>
+                <ol>
+                    <li>Acesse <a href="https://github.com" target="_blank">github.com</a></li>
+                    <li>Clique em <strong>"New repository"</strong></li>
+                    <li>Nome: <code>loja-whatsapp-ecommerce</code></li>
+                    <li>Marque como <strong>Public</strong></li>
+                    <li>Clique em <strong>"Create repository"</strong></li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h3>Passo 2: Preparar os Arquivos</h3>
+                <p>Antes de subir, você precisa editar alguns arquivos para personalizar com seu usuário:</p>
+                
+                <h4>📝 1. Arquivo: package.json (raiz)</h4>
+                <div class="code">
+// Encontre esta linha:
+"homepage": "https://SEU_USUARIO.github.io/loja-whatsapp-ecommerce"
+
+// Substitua por:
+"homepage": "https://seunome.github.io/loja-whatsapp-ecommerce"
+                </div>
+                
+                <h4>📝 2. Arquivo: client/package.json</h4>
+                <div class="code">
+// Encontre esta linha:
+"homepage": "https://SEU_USUARIO.github.io/loja-whatsapp-ecommerce"
+
+// Substitua por:
+"homepage": "https://seunome.github.io/loja-whatsapp-ecommerce"
+                </div>
+                
+                <div class="warning">
+                    <strong>⚠️ Importante:</strong><br>
+                    • Substitua "seunome" pelo seu username do GitHub<br>
+                    • Use exatamente o mesmo nome que você criou na conta<br>
+                    • Respeite maiúsculas e minúsculas<br>
+                    • Não use espaços ou caracteres especiais
+                </div>
+                
+                <h4>📋 Exemplo prático:</h4>
+                <table>
+                    <tr>
+                        <th>Se seu username é:</th>
+                        <th>A URL será:</th>
+                    </tr>
+                    <tr>
+                        <td>joaosilva</td>
+                        <td>https://joaosilva.github.io/loja-whatsapp-ecommerce</td>
+                    </tr>
+                    <tr>
+                        <td>MariaLoja</td>
+                        <td>https://MariaLoja.github.io/loja-whatsapp-ecommerce</td>
+                    </tr>
+                    <tr>
+                        <td>TechStore2024</td>
+                        <td>https://TechStore2024.github.io/loja-whatsapp-ecommerce</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="step">
+                <h3>Passo 3: Abrir Terminal/Prompt</h3>
+                
+                <h4>💻 Windows:</h4>
+                <ol>
+                    <li>Pressione <kbd>Win + R</kbd></li>
+                    <li>Digite <code>cmd</code> e pressione Enter</li>
+                    <li>Ou clique com botão direito na pasta e "Abrir no Terminal"</li>
+                </ol>
+                
+                <h4>🍎 Mac:</h4>
+                <ol>
+                    <li>Pressione <kbd>Cmd + Espaço</kbd></li>
+                    <li>Digite "Terminal" e pressione Enter</li>
+                    <li>Ou use Finder > Aplicativos > Utilitários > Terminal</li>
+                </ol>
+                
+                <h4>🐧 Linux:</h4>
+                <ol>
+                    <li>Pressione <kbd>Ctrl + Alt + T</kbd></li>
+                    <li>Ou clique com botão direito na pasta e "Abrir Terminal"</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h3>Passo 4: Navegar até a pasta</h3>
+                <div class="code">
+# Windows:
+cd C:\Users\Professor\Documents\Loja
+
+# Mac/Linux:
+cd /caminho/para/sua/pasta/Loja
+                </div>
+                
+                <div class="warning">
+                    <strong>📋 Dica:</strong> Se você não souber o caminho exato:<br>
+                    • Arraste a pasta para o terminal<br>
+                    • O caminho aparecerá automaticamente
+                </div>
+            </div>
+            
+            <div class="step">
+                <h3>Passo 5: Comandos Git (copie e cole um por vez)</h3>
+                
+                <h4>1️⃣ Inicializar repositório:</h4>
+                <div class="code">git init</div>
+                <p><em>Este comando cria um repositório Git na pasta</em></p>
+                
+                <h4>2️⃣ Adicionar todos os arquivos:</h4>
+                <div class="code">git add .</div>
+                <p><em>Adiciona todos os arquivos para serem enviados</em></p>
+                
+                <h4>3️⃣ Fazer commit inicial:</h4>
+                <div class="code">git commit -m "Loja ecommerce inicial"</div>
+                <p><em>Cria um "snapshot" dos arquivos com uma mensagem</em></p>
+                
+                <h4>4️⃣ Definir branch principal:</h4>
+                <div class="code">git branch -M main</div>
+                <p><em>Define "main" como branch principal (padrão atual)</em></p>
+                
+                <h4>5️⃣ Conectar com GitHub:</h4>
+                <div class="code">git remote add origin https://github.com/SEU_USUARIO/loja-whatsapp-ecommerce.git</div>
+                <p class="highlight"><strong>⚠️ Lembre-se:</strong> Substitua SEU_USUARIO pelo seu username real!</p>
+                
+                <h4>6️⃣ Enviar arquivos:</h4>
+                <div class="code">git push -u origin main</div>
+                <p><em>Envia todos os arquivos para o GitHub</em></p>
+                
+                <div class="success">
+                    <strong>✅ Se tudo deu certo:</strong><br>
+                    Você verá uma mensagem de sucesso e os arquivos aparecerão no seu repositório GitHub
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Passo 4: Instalar gh-pages</h3>
+                <div class="code">
+cd client
+npm install gh-pages --save-dev
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Passo 5: Deploy</h3>
+                <div class="code">
+npm run deploy
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>Passo 6: Configurar GitHub Pages</h3>
+                <ol>
+                    <li>No GitHub, vá em <strong>Settings</strong> > <strong>Pages</strong></li>
+                    <li>Source: <strong>Deploy from a branch</strong></li>
+                    <li>Branch: <strong>gh-pages</strong></li>
+                    <li>Folder: <strong>/ (root)</strong></li>
+                    <li>Clique em <strong>Save</strong></li>
+                </ol>
+            </div>
+
+            <div class="success">
+                <strong>✅ Pronto!</strong> Sua loja estará disponível em:<br>
+                <code>https://SEU_USUARIO.github.io/loja-whatsapp-ecommerce</code>
+            </div>
+        </div>
+
+        <!-- GERENCIAR PRODUTOS -->
+        <div class="section" id="produtos">
+            <h2>📦 Gerenciar Produtos</h2>
+            
+            <div class="warning">
+                <strong>📁 Arquivo Principal:</strong> <code>client/src/data/products.js</code><br>
+                Este é o único arquivo que você precisa editar para gerenciar produtos!
+            </div>
+
+            <h3>➕ Adicionar Novo Produto</h3>
+            <div class="code">
+{
+  id: 7, // Próximo ID disponível
+  name: "Nome do Produto",
+  price: 999.99,
+  category: "Smartphones", // Smartphones, Notebooks, Games, Audio, etc.
+  image: "https://images.unsplash.com/photo-XXXXX?w=300&h=300&fit=crop",
+  description: "Descrição detalhada do produto",
+  affiliateLinks: {
+    shopee: "https://shopee.com.br/produto?affiliate_id=SEU_ID",
+    mercadolivre: "https://produto.mercadolivre.com.br/produto?affiliate=SEU_ID",
+    amazon: "https://amazon.com.br/produto?tag=SEU_ID"
+  },
+  tiktokKeywords: ["palavra1", "palavra2", "palavra3", "palavra4"],
+  featured: true // true = produto em destaque, false = produto normal
+}
+            </div>
+
+            <h3>✏️ Editar Produto Existente</h3>
+            <p>Encontre o produto pelo ID e modifique os campos desejados:</p>
+            <div class="code">
+// Exemplo: Alterar preço do iPhone
+{
+  id: 1,
+  name: "iPhone 15 Pro Max",
+  price: 8999.99, // ← Preço alterado
+  // ... resto dos campos
+}
+            </div>
+
+            <h3>🗑️ Remover Produto</h3>
+            <p>Delete o objeto completo do produto no array:</p>
+            <div class="code">
+// Remova todo este bloco:
+{
+  id: 6,
+  name: "JBL Flip 6",
+  // ... todo o objeto
+},
+            </div>
+
+            <h3>🖼️ Onde Encontrar Imagens</h3>
+            <table>
+                <tr>
+                    <th>Site</th>
+                    <th>URL</th>
+                    <th>Como Usar</th>
+                </tr>
+                <tr>
+                    <td>Unsplash</td>
+                    <td>unsplash.com</td>
+                    <td>Busque o produto + adicione <code>?w=300&h=300&fit=crop</code></td>
+                </tr>
+                <tr>
+                    <td>Pexels</td>
+                    <td>pexels.com</td>
+                    <td>Imagens gratuitas de alta qualidade</td>
+                </tr>
+                <tr>
+                    <td>Imgur</td>
+                    <td>imgur.com</td>
+                    <td>Upload de imagens próprias</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- CONFIGURAÇÕES -->
+        <div class="section" id="configuracoes">
+            <h2>⚙️ Configurações da Loja</h2>
+            
+            <p>No mesmo arquivo <code>client/src/data/products.js</code>, encontre:</p>
+            
+            <div class="code">
+export const storeConfig = {
+  name: "NovidadeSP", // ← Nome da sua loja
+  whatsapp: "5511914405349", // ← Seu número WhatsApp
+  email: "contato@novidadesp.com.br", // ← Seu email
+  instagram: "@novidadesp", // ← Seu Instagram
+  tiktok: "@novidadesp" // ← Seu TikTok
+};
+            </div>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>📱 WhatsApp</h3>
+                    <p>Formato: <code>55 + DDD + NÚMERO</code></p>
+                    <p>Exemplo: <code>5511999887766</code></p>
+                </div>
+                <div class="card">
+                    <h3>🎨 Nome da Loja</h3>
+                    <p>Aparece no cabeçalho e títulos</p>
+                    <p>Máximo 20 caracteres</p>
+                </div>
+                <div class="card">
+                    <h3>📧 Contatos</h3>
+                    <p>Email e redes sociais</p>
+                    <p>Usados no rodapé</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SISTEMA DE AFILIADOS -->
+        <div class="section" id="afiliados">
+            <h2>💰 Sistema de Afiliados</h2>
+            
+            <h3>🔗 Como Configurar Links de Afiliados</h3>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>🟡 Shopee</h3>
+                    <p><strong>Como se cadastrar:</strong></p>
+                    <ol>
+                        <li>Acesse shopee.com.br/affiliate</li>
+                        <li>Cadastre-se como afiliado</li>
+                        <li>Copie seu ID de afiliado</li>
+                    </ol>
+                    <p><strong>Formato do link:</strong></p>
+                    <div class="code">https://shopee.com.br/produto?affiliate_id=SEU_ID</div>
+                </div>
+
+                <div class="card">
+                    <h3>🔵 Mercado Livre</h3>
+                    <p><strong>Como se cadastrar:</strong></p>
+                    <ol>
+                        <li>Acesse mercadolivre.com.br/afiliados</li>
+                        <li>Cadastre-se no programa</li>
+                        <li>Gere links personalizados</li>
+                    </ol>
+                    <p><strong>Formato do link:</strong></p>
+                    <div class="code">https://produto.mercadolivre.com.br/produto?affiliate=SEU_ID</div>
+                </div>
+
+                <div class="card">
+                    <h3>🟠 Amazon</h3>
+                    <p><strong>Como se cadastrar:</strong></p>
+                    <ol>
+                        <li>Acesse associados.amazon.com.br</li>
+                        <li>Cadastre-se no programa</li>
+                        <li>Use sua tag de associado</li>
+                    </ol>
+                    <p><strong>Formato do link:</strong></p>
+                    <div class="code">https://amazon.com.br/produto?tag=SEU_ID</div>
+                </div>
+            </div>
+
+            <h3>📊 Acompanhar Resultados</h3>
+            <ul>
+                <li><strong>Shopee:</strong> Painel do afiliado</li>
+                <li><strong>Mercado Livre:</strong> Central do vendedor</li>
+                <li><strong>Amazon:</strong> Central de associados</li>
+            </ul>
+        </div>
+
+        <!-- WHATSAPP -->
+        <div class="section" id="whatsapp">
+            <h2>📱 Configurar WhatsApp</h2>
+            
+            <h3>🔧 Configuração Básica</h3>
+            <div class="step">
+                <h4>1. Número WhatsApp Business</h4>
+                <p>Edite em <code>storeConfig.whatsapp</code>:</p>
+                <div class="code">"whatsapp": "5511999887766" // Seu número completo</div>
+            </div>
+
+            <div class="step">
+                <h4>2. Mensagem Automática</h4>
+                <p>A loja gera automaticamente mensagens como:</p>
+                <div class="code">
+🛍️ *iPhone 15 Pro Max*
+
+💰 *Preço: R$ 9999.99*
+
+📱 *Onde comprar:*
+🟡 Shopee: [link]
+🔵 Mercado Livre: [link]
+🟠 Amazon: [link]
+
+📞 *Dúvidas? Chama no WhatsApp!*
+                </div>
+            </div>
+
+            <h3>✏️ Personalizar Mensagens</h3>
+            <p>Para alterar o formato das mensagens, edite o arquivo:</p>
+            <p><code>client/src/pages/Products.js</code> - função <code>handleWhatsApp</code></p>
+        </div>
+
+        <!-- DOMÍNIO PERSONALIZADO -->
+        <div class="section" id="dominio">
+            <h2>🌍 Domínio Personalizado</h2>
+            
+            <h3>🎯 Por que usar domínio próprio?</h3>
+            <ul>
+                <li>🏢 <strong>Profissionalismo:</strong> minhaloja.com.br em vez de username.github.io</li>
+                <li>🔍 <strong>SEO:</strong> Melhor posicionamento no Google</li>
+                <li>📱 <strong>Marketing:</strong> Mais fácil de lembrar e compartilhar</li>
+                <li>🎨 <strong>Branding:</strong> Fortalece sua marca</li>
+            </ul>
+
+            <h3>💰 Onde comprar domínio:</h3>
+            <table>
+                <tr>
+                    <th>Provedor</th>
+                    <th>Preço/Ano</th>
+                    <th>Vantagens</th>
+                </tr>
+                <tr>
+                    <td>Registro.br</td>
+                    <td>R$ 40</td>
+                    <td>Oficial .com.br, confiável</td>
+                </tr>
+                <tr>
+                    <td>GoDaddy</td>
+                    <td>R$ 60</td>
+                    <td>Interface fácil, suporte</td>
+                </tr>
+                <tr>
+                    <td>Namecheap</td>
+                    <td>R$ 80</td>
+                    <td>Privacidade grátis</td>
+                </tr>
+            </table>
+
+            <div class="step">
+                <h4>1. Comprar o domínio</h4>
+                <p>Escolha um nome relacionado ao seu negócio</p>
+                <p><strong>Exemplos:</strong> techstore.com.br, ofertassp.com.br, minhaloja.com.br</p>
+            </div>
+
+            <div class="step">
+                <h4>2. Configurar DNS</h4>
+                <p>No painel do seu provedor, adicione estes registros:</p>
+                <div class="code">
+Tipo: CNAME
+Nome: www
+Valor: SEU_USUARIO.github.io
+
+Tipo: A
+Nome: @
+Valor: 185.199.108.153
+Valor: 185.199.109.153
+Valor: 185.199.110.153
+Valor: 185.199.111.153
+                </div>
+            </div>
+
+            <div class="step">
+                <h4>3. Configurar no GitHub</h4>
+                <ol>
+                    <li>Vá em Settings > Pages no seu repositório</li>
+                    <li>Em "Custom domain", digite seu domínio</li>
+                    <li>Marque "Enforce HTTPS"</li>
+                    <li>Aguarde 24h para propagação</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- SSL -->
+        <div class="section" id="ssl">
+            <h2>🔒 Certificado SSL</h2>
+            
+            <h3>🛡️ Por que SSL é importante?</h3>
+            <ul>
+                <li>🔒 <strong>Segurança:</strong> Dados criptografados</li>
+                <li>🔍 <strong>SEO:</strong> Google prioriza sites HTTPS</li>
+                <li>✅ <strong>Confiança:</strong> Cadeado verde no navegador</li>
+                <li>📱 <strong>Compatibilidade:</strong> Funciona em todos os dispositivos</li>
+            </ul>
+
+            <div class="success">
+                <strong>✨ Boa notícia!</strong><br>
+                O GitHub Pages oferece SSL gratuito automaticamente!
+            </div>
+
+            <h3>🔧 Como ativar:</h3>
+            <div class="step">
+                <h4>1. Acesse Settings > Pages</h4>
+                <p>No seu repositório GitHub</p>
+            </div>
+            <div class="step">
+                <h4>2. Marque "Enforce HTTPS"</h4>
+                <p>Força o uso de HTTPS em todas as páginas</p>
+            </div>
+            <div class="step">
+                <h4>3. Aguarde alguns minutos</h4>
+                <p>O certificado será gerado automaticamente</p>
+            </div>
+
+            <div class="warning">
+                <strong>⚠️ Importante:</strong><br>
+                Se você usar domínio personalizado, aguarde 24h após configurar o DNS antes de ativar o SSL
+            </div>
+        </div>
+
+        <!-- MARKETING -->
+        <div class="section" id="marketing">
+            <h2>📱 Estratégias de Marketing</h2>
+            
+            <h3>🎵 TikTok Marketing</h3>
+            <div class="grid">
+                <div class="card">
+                    <h4>📱 Tipos de Conteúdo</h4>
+                    <ul>
+                        <li>📦 Unboxing de produtos</li>
+                        <li>📊 Comparações "antes vs depois"</li>
+                        <li>🎯 Reviews honestos</li>
+                        <li>💡 Dicas de uso</li>
+                        <li>🎭 Trends adaptados</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>⏰ Melhores Horários</h4>
+                    <ul>
+                        <li>🌅 <strong>Manhã:</strong> 6h-9h</li>
+                        <li>🍽️ <strong>Almoço:</strong> 12h-14h</li>
+                        <li>🌆 <strong>Noite:</strong> 19h-22h</li>
+                        <li>📅 <strong>Fins de semana:</strong> 10h-16h</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>🏷️ Hashtags Estratégicas</h4>
+                    <ul>
+                        <li>#ofertas #desconto #promoção</li>
+                        <li>#tecnologia #gadgets #inovação</li>
+                        <li>#dica #tutorial #review</li>
+                        <li>#brasil #sp #rj (localização)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>📸 Instagram Marketing</h3>
+            <div class="step">
+                <h4>1. Stories com produtos</h4>
+                <p>Mostre produtos em uso no dia a dia</p>
+                <p>Use stickers de "Deslize para cima" ou "Link na bio"</p>
+            </div>
+            <div class="step">
+                <h4>2. Posts no feed</h4>
+                <p>Fotos profissionais dos produtos</p>
+                <p>Carrossel com múltiplas imagens</p>
+            </div>
+            <div class="step">
+                <h4>3. Reels</h4>
+                <p>Vídeos curtos similar ao TikTok</p>
+                <p>Use trending audios</p>
+            </div>
+
+            <h3>💬 WhatsApp Marketing</h3>
+            <ul>
+                <li>📢 <strong>Status:</strong> Poste produtos em destaque</li>
+                <li>👥 <strong>Grupos:</strong> Participe de grupos de interesse</li>
+                <li>📱 <strong>Lista de transmissão:</strong> Envie ofertas para clientes</li>
+                <li>🤖 <strong>Chatbot:</strong> Respostas automáticas básicas</li>
+            </ul>
+        </div>
+
+        <!-- ANALYTICS -->
+        <div class="section" id="analytics">
+            <h2>📊 Google Analytics</h2>
+            
+            <h3>📈 Por que usar Analytics?</h3>
+            <ul>
+                <li>👥 <strong>Visitantes:</strong> Quantas pessoas acessam sua loja</li>
+                <li>🌍 <strong>Origem:</strong> De onde vêm seus clientes</li>
+                <li>📱 <strong>Dispositivos:</strong> Mobile vs Desktop</li>
+                <li>⏱️ <strong>Comportamento:</strong> Tempo na página, páginas mais visitadas</li>
+                <li>🎯 <strong>Conversões:</strong> Quantos clicam nos links de afiliados</li>
+            </ul>
+
+            <div class="step">
+                <h4>1. Criar conta Google Analytics</h4>
+                <ol>
+                    <li>Acesse <a href="https://analytics.google.com" target="_blank">analytics.google.com</a></li>
+                    <li>Clique em "Começar a medir"</li>
+                    <li>Configure uma propriedade para sua loja</li>
+                    <li>Copie o código de acompanhamento</li>
+                </ol>
+            </div>
+
+            <div class="step">
+                <h4>2. Instalar na loja</h4>
+                <p>Adicione este código no arquivo <code>client/public/index.html</code>:</p>
+                <div class="code">
+&lt;!-- Google Analytics --&gt;
+&lt;script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"&gt;&lt;/script&gt;
+&lt;script&gt;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+&lt;/script&gt;
+                </div>
+                <p class="highlight">Substitua GA_MEASUREMENT_ID pelo seu ID real</p>
+            </div>
+
+            <h3>📊 Métricas importantes:</h3>
+            <table>
+                <tr>
+                    <th>Métrica</th>
+                    <th>O que significa</th>
+                    <th>Meta</th>
+                </tr>
+                <tr>
+                    <td>Usuários</td>
+                    <td>Visitantes únicos</td>
+                    <td>Crescimento mensal</td>
+                </tr>
+                <tr>
+                    <td>Taxa de rejeição</td>
+                    <td>% que sai sem interagir</td>
+                    <td>Menos de 70%</td>
+                </tr>
+                <tr>
+                    <td>Tempo na página</td>
+                    <td>Quanto tempo ficam</td>
+                    <td>Mais de 2 minutos</td>
+                </tr>
+                <tr>
+                    <td>Páginas/sessão</td>
+                    <td>Quantas páginas visitam</td>
+                    <td>Mais de 2 páginas</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- SEO -->
+        <div class="section" id="seo">
+            <h2>🔍 SEO e Otimização</h2>
+            
+            <h3>🎯 O que é SEO?</h3>
+            <p>SEO (Search Engine Optimization) é o conjunto de técnicas para melhorar o posicionamento da sua loja no Google e outros buscadores.</p>
+
+            <h3>🔧 Otimizações já incluídas:</h3>
+            <ul>
+                <li>✅ <strong>Responsivo:</strong> Funciona em mobile</li>
+                <li>✅ <strong>Velocidade:</strong> Carregamento rápido</li>
+                <li>✅ <strong>HTTPS:</strong> Certificado SSL</li>
+                <li>✅ <strong>Meta tags:</strong> Título e descrição</li>
+            </ul>
+
+            <h3>📝 Como melhorar ainda mais:</h3>
+            <div class="step">
+                <h4>1. Títulos otimizados</h4>
+                <p>Edite o arquivo <code>client/public/index.html</code>:</p>
+                <div class="code">
+&lt;title&gt;Sua Loja - Produtos com Desconto | WhatsApp&lt;/title&gt;
+&lt;meta name="description" content="Encontre os melhores produtos com desconto. iPhone, Samsung, notebooks e muito mais. Compre pelo WhatsApp com segurança."&gt;
+                </div>
+            </div>
+
+            <div class="step">
+                <h4>2. Palavras-chave nos produtos</h4>
+                <p>Use palavras que as pessoas pesquisam:</p>
+                <ul>
+                    <li>"iPhone 15 barato"</li>
+                    <li>"Samsung Galaxy promoção"</li>
+                    <li>"Notebook gamer desconto"</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h4>3. Conteúdo relevante</h4>
+                <p>Adicione descrições detalhadas dos produtos:</p>
+                <ul>
+                    <li>Especificações técnicas</li>
+                    <li>Benefícios do produto</li>
+                    <li>Comparações com concorrentes</li>
+                </ul>
+            </div>
+
+            <h3>🔗 Link Building</h3>
+            <ul>
+                <li>📱 <strong>Redes sociais:</strong> Compartilhe o link da loja</li>
+                <li>📝 <strong>Blog posts:</strong> Escreva sobre os produtos</li>
+                <li>🤝 <strong>Parcerias:</strong> Troque links com outras lojas</li>
+                <li>📺 <strong>YouTube:</strong> Vídeos com link na descrição</li>
+            </ul>
+        </div>
+
+        <!-- MANUTENÇÃO -->
+        <div class="section" id="manutencao">
+            <h2>🔧 Manutenção e Atualizações</h2>
+            
+            <h3>🔄 Como Atualizar a Loja</h3>
+            
+            <h4>🎆 Método 1: Usando Interface Admin (Recomendado)</h4>
+            <div class="step">
+                <h4>1. Abra admin.html</h4>
+                <p>Clique duplo no arquivo <code>admin.html</code></p>
+            </div>
+            <div class="step">
+                <h4>2. Faça as alterações</h4>
+                <p>Use a interface visual para editar produtos e configurações</p>
+            </div>
+            <div class="step">
+                <h4>3. Exporte o código</h4>
+                <p>Aba "Exportar" > "Gerar Código" > "Copiar Código"</p>
+            </div>
+            <div class="step">
+                <h4>4. Substitua o arquivo</h4>
+                <p>Cole o código em <code>client/src/data/products.js</code></p>
+            </div>
+            <div class="step">
+                <h4>5. Faça o deploy</h4>
+                <div class="code">
+cd client
+npm run build
+npm run deploy
+                </div>
+            </div>
+
+            <h4>💻 Método 2: Editando Código Diretamente</h4>
+            <div class="step">
+                <h4>1. Editar arquivos</h4>
+                <p>Modifique <code>client/src/data/products.js</code> diretamente</p>
+            </div>
+            <div class="step">
+                <h4>2. Testar localmente</h4>
+                <div class="code">
+cd client
+npm start
+                </div>
+                <p>Acesse <code>http://localhost:3000</code> para testar</p>
+            </div>
+            <div class="step">
+                <h4>3. Fazer deploy</h4>
+                <div class="code">
+git add .
+git commit -m "Atualização dos produtos"
+git push
+cd client
+npm run deploy
+                </div>
+            </div>
+
+            <h3>📅 Cronograma de Manutenção</h3>
+            <table>
+                <tr>
+                    <th>Frequência</th>
+                    <th>Tarefa</th>
+                    <th>Tempo</th>
+                </tr>
+                <tr>
+                    <td>Diário</td>
+                    <td>Responder WhatsApp, verificar links</td>
+                    <td>15 min</td>
+                </tr>
+                <tr>
+                    <td>Semanal</td>
+                    <td>Atualizar preços, adicionar produtos</td>
+                    <td>30 min</td>
+                </tr>
+                <tr>
+                    <td>Mensal</td>
+                    <td>Analisar métricas, otimizar SEO</td>
+                    <td>1 hora</td>
+                </tr>
+                <tr>
+                    <td>Trimestral</td>
+                    <td>Revisar estratégia, novos produtos</td>
+                    <td>2 horas</td>
+                </tr>
+            </table>
+
+            <h3>🐛 Solução de Problemas</h3>
+            <table>
+                <tr>
+                    <th>Problema</th>
+                    <th>Solução</th>
+                </tr>
+                <tr>
+                    <td>Site não carrega</td>
+                    <td>Verifique se o deploy foi feito corretamente</td>
+                </tr>
+                <tr>
+                    <td>Produtos não aparecem</td>
+                    <td>Verifique sintaxe do arquivo products.js</td>
+                </tr>
+                <tr>
+                    <td>WhatsApp não funciona</td>
+                    <td>Verifique formato do número (55 + DDD + número)</td>
+                </tr>
+                <tr>
+                    <td>Links quebrados</td>
+                    <td>Teste todos os links de afiliados</td>
+                </tr>
+            </table>
+
+            <h3>📈 Melhorias Futuras</h3>
+            <ul>
+                <li>Adicionar mais produtos</li>
+                <li>Criar categorias personalizadas</li>
+                <li>Integrar com Google Analytics</li>
+                <li>Adicionar sistema de busca</li>
+                <li>Criar landing pages específicas</li>
+            </ul>
+        </div>
+
+        <!-- CHECKLIST FINAL -->
+        <div class="section">
+            <h2>✅ Checklist Final</h2>
+            
+            <h3>🔴 Antes do Lançamento:</h3>
+            <ul>
+                <li>☐ Conta GitHub criada e configurada</li>
+                <li>☐ Repositório criado e arquivos enviados</li>
+                <li>☐ GitHub Pages ativado</li>
+                <li>☐ Loja acessível pela URL</li>
+                <li>☐ WhatsApp Business configurado</li>
+                <li>☐ Produtos adicionados e testados</li>
+                <li>☐ Links de afiliados funcionando</li>
+                <li>☐ Teste em mobile e desktop</li>
+            </ul>
+
+            <h3>🟡 Após o Lançamento:</h3>
+            <ul>
+                <li>☐ Google Analytics instalado</li>
+                <li>☐ Domínio personalizado (opcional)</li>
+                <li>☐ SSL ativado</li>
+                <li>☐ Redes sociais criadas</li>
+                <li>☐ Primeiro conteúdo no TikTok</li>
+                <li>☐ Primeiros posts no Instagram</li>
+                <li>☐ Lista de contatos WhatsApp</li>
+            </ul>
+        </div>
+
+        <!-- RECURSOS ADICIONAIS -->
+        <div class="section">
+            <h2>📚 Recursos Adicionais</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>📱 Apps Úteis</h3>
+                    <ul>
+                        <li><strong>Canva:</strong> Criar imagens para redes sociais</li>
+                        <li><strong>CapCut:</strong> Editar vídeos TikTok</li>
+                        <li><strong>WhatsApp Business:</strong> Gerenciar conversas</li>
+                        <li><strong>Google Analytics:</strong> Acompanhar métricas</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>📚 Cursos Recomendados</h3>
+                    <ul>
+                        <li><strong>Marketing Digital:</strong> Hotmart, Udemy</li>
+                        <li><strong>TikTok Ads:</strong> Cursos especializados</li>
+                        <li><strong>Google Ads:</strong> Google Skillshop</li>
+                        <li><strong>E-commerce:</strong> Sebrae, cursos online</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>🔗 Links Úteis</h3>
+                    <ul>
+                        <li><a href="https://github.com" target="_blank">GitHub</a></li>
+                        <li><a href="https://analytics.google.com" target="_blank">Google Analytics</a></li>
+                        <li><a href="https://business.whatsapp.com" target="_blank">WhatsApp Business</a></li>
+                        <li><a href="https://www.canva.com" target="_blank">Canva</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>💬 Comunidades</h3>
+                    <ul>
+                        <li><strong>Facebook:</strong> Grupos de e-commerce</li>
+                        <li><strong>Telegram:</strong> Canais de ofertas</li>
+                        <li><strong>Discord:</strong> Comunidades tech</li>
+                        <li><strong>Reddit:</strong> r/entrepreneur</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUPORTE -->
+        <div class="section" style="background: linear-gradient(45deg, #25D366, #128C7E); color: white;">
+            <h2 style="color: white; border-color: white;">🎆 Suporte e Ajuda</h2>
+            
+            <div class="grid">
+                <div>
+                    <h3>💬 WhatsApp</h3>
+                    <p style="font-size: 1.2rem;"><strong>11 914405349</strong></p>
+                    <p>Suporte técnico e dúvidas</p>
+                    <a href="https://wa.me/5511914405349?text=Olá! Preciso de ajuda com a loja ecommerce" class="btn" style="background: white; color: #25D366;">Chamar Agora</a>
+                </div>
+                <div>
+                    <h3>📧 Email</h3>
+                    <p><strong>contato@novidadesp.com.br</strong></p>
+                    <p>Dúvidas técnicas detalhadas</p>
+                    <p>Resposta em até 24h</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center;">
+                <h3>🕰️ Horário de Atendimento</h3>
+                <p>Segunda a Sexta: 9h às 18h</p>
+                <p>Sábado: 9h às 14h</p>
+                <p>Domingo: Apenas WhatsApp</p>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h1 style="color: white;">🎉 Parabéns!</h1>
+            <p style="font-size: 1.3rem; margin: 1rem 0;">Sua loja WhatsApp Ecommerce está pronta para gerar vendas!</p>
+            
+            <div style="margin: 2rem 0;">
+                <h3 style="color: white; border: none;">📈 Próximos Passos:</h3>
+                <p style="font-size: 1.1rem;">1. Configure seus produtos no admin.html</p>
+                <p style="font-size: 1.1rem;">2. Faça o deploy no GitHub Pages</p>
+                <p style="font-size: 1.1rem;">3. Comece a divulgar nas redes sociais</p>
+                <p style="font-size: 1.1rem;">4. Monitore as vendas e otimize</p>
+            </div>
+            
+            <div style="margin: 2rem 0;">
+                <a href="admin.html" class="btn" style="background: white; color: #667eea; margin: 5px;">🔧 Abrir Admin</a>
+                <a href="GUIA_AFILIADOS.html" class="btn" style="background: #25D366; margin: 5px;">💰 Guia Afiliados</a>
+                <a href="https://wa.me/5511914405349" class="btn" style="background: #ff6b6b; margin: 5px;">💬 Suporte</a>
+            </div>
+            
+            <p style="font-size: 1.2rem; font-weight: bold; margin-top: 2rem;">🚀 Sucesso na sua jornada empreendedora!</p>
+        </div>
+    </div>
+</body>
+</html>

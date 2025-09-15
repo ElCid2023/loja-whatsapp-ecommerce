@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Afiliados - NovidadeSP</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header { background: rgba(255,255,255,0.95); color: #333; padding: 2rem; text-align: center; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .section { background: rgba(255,255,255,0.95); padding: 2rem; margin-bottom: 2rem; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .hero { background: linear-gradient(45deg, #25D366, #128C7E); color: white; padding: 3rem; text-align: center; border-radius: 15px; margin-bottom: 2rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+        .card:hover { transform: translateY(-5px); }
+        .product-card { border-left: 5px solid #25D366; }
+        .strategy-card { border-left: 5px solid #007bff; }
+        .platform-card { border-left: 5px solid #ff6b6b; }
+        h1, h2, h3 { margin-bottom: 1rem; }
+        h1 { font-size: 2.5rem; }
+        h2 { color: #667eea; border-bottom: 3px solid #667eea; padding-bottom: 0.5rem; }
+        .btn { display: inline-block; padding: 12px 24px; background: #25D366; color: white; text-decoration: none; border-radius: 25px; margin: 5px; font-weight: bold; transition: all 0.3s ease; }
+        .btn:hover { background: #128C7E; transform: translateY(-2px); }
+        .btn-secondary { background: #007bff; }
+        .btn-secondary:hover { background: #0056b3; }
+        .btn-warning { background: #ffc107; color: #333; }
+        .btn-warning:hover { background: #e0a800; }
+        .highlight { background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%); padding: 4px 8px; border-radius: 4px; font-weight: bold; }
+        .emoji { font-size: 1.5em; margin-right: 0.5rem; }
+        .price { font-size: 1.5rem; font-weight: bold; color: #25D366; }
+        .steps { counter-reset: step-counter; }
+        .step { counter-increment: step-counter; background: #f8f9fa; padding: 1.5rem; margin: 1rem 0; border-radius: 10px; border-left: 5px solid #007bff; position: relative; }
+        .step::before { content: counter(step-counter); position: absolute; left: -15px; top: 15px; background: #007bff; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .warning { background: linear-gradient(45deg, #fff3cd, #ffeaa7); border: 2px solid #ffc107; padding: 1.5rem; border-radius: 10px; margin: 1rem 0; }
+        .success { background: linear-gradient(45deg, #d4edda, #c3e6cb); border: 2px solid #28a745; padding: 1.5rem; border-radius: 10px; margin: 1rem 0; }
+        .stats { display: flex; justify-content: space-around; text-align: center; margin: 2rem 0; }
+        .stat { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        .stat-number { font-size: 2rem; font-weight: bold; color: #25D366; }
+        .hashtag { background: #25D366; color: white; padding: 5px 10px; border-radius: 15px; font-size: 0.9rem; margin: 3px; display: inline-block; cursor: pointer; transition: all 0.3s ease; }
+        .hashtag:hover { background: #128C7E; transform: scale(1.05); }
+        .platform { padding: 1rem; margin: 1rem 0; border-radius: 10px; }
+        .shopee { background: linear-gradient(45deg, #ee4d2d, #ff6b35); color: white; }
+        .mercadolivre { background: linear-gradient(45deg, #fff159, #ffed4e); color: #333; }
+        .amazon { background: linear-gradient(45deg, #ff9900, #ffb84d); color: white; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { border: 1px solid #ddd; padding: 15px; text-align: left; }
+        th { background: linear-gradient(45deg, #667eea, #764ba2); color: white; }
+        .toc { background: #f8f9fa; padding: 2rem; border-radius: 10px; }
+        .toc ul { list-style: none; }
+        .toc li { margin: 0.5rem 0; }
+        .toc a { color: #667eea; text-decoration: none; font-weight: 500; }
+        .toc a:hover { color: #25D366; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🚀 Hub de Afiliados</h1>
+            <p style="font-size: 1.2rem; margin-top: 1rem;">NovidadeSP & Achados - Maximize suas vendas com marketing de afiliados</p>
+        </div>
+
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h2 style="color: white; border: none;">💰 Transforme Conteúdo em Lucro</h2>
+            <p style="font-size: 1.3rem; margin: 1rem 0;">Links para Shopee, Mercado Livre e Amazon + Sugestões de conteúdo para TikTok</p>
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">15</div>
+                    <div>Produtos</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">3</div>
+                    <div>Plataformas</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">∞</div>
+                    <div>Possibilidades</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ÍNDICE -->
+        <div class="section toc">
+            <h2>📋 Índice Rápido</h2>
+            <div class="grid">
+                <div>
+                    <h3>🎯 Como Usar</h3>
+                    <ul>
+                        <li><a href="#acesso">Como Acessar</a></li>
+                        <li><a href="#produtos">Produtos com Links</a></li>
+                        <li><a href="#tiktok">Sugestões TikTok</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>💡 Estratégias</h3>
+                    <ul>
+                        <li><a href="#estrategias">Estratégias de Sucesso</a></li>
+                        <li><a href="#plataformas">Links por Plataforma</a></li>
+                        <li><a href="#whatsapp">Integração WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMO ACESSAR -->
+        <div class="section" id="acesso">
+            <h2>🎯 Como Acessar o Hub</h2>
+            <div class="steps">
+                <div class="step">
+                    <h3>Acesse a loja</h3>
+                    <p>Vá para <code>http://localhost:3000</code> ou sua URL do GitHub Pages</p>
+                </div>
+                <div class="step">
+                    <h3>Menu Afiliados</h3>
+                    <p>Clique em <span class="highlight">💰 Afiliados</span> no menu de navegação</p>
+                </div>
+                <div class="step">
+                    <h3>Acesso Direto</h3>
+                    <p>Ou acesse diretamente: <code>/affiliate</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUTOS COM LINKS -->
+        <div class="section" id="produtos">
+            <h2>📦 Aba "Produtos com Links"</h2>
+            
+            <div class="success">
+                <strong>✨ O que você encontra:</strong><br>
+                • 15 produtos com links de afiliados prontos<br>
+                • Links para 3 plataformas principais<br>
+                • Palavras-chave TikTok para cada produto<br>
+                • Preços e categorias organizados
+            </div>
+
+            <h3>🔧 Como Usar os Recursos</h3>
+            <div class="grid">
+                <div class="card product-card">
+                    <h4>📋 Copiar Links</h4>
+                    <p>Clique no botão <strong>"📋 Copiar"</strong> ao lado de cada link</p>
+                    <p>O link será copiado para sua área de transferência</p>
+                    <p>Use em redes sociais, blog ou WhatsApp</p>
+                </div>
+
+                <div class="card product-card">
+                    <h4>🔗 Abrir Links</h4>
+                    <p>Clique no botão <strong>"🔗 Abrir"</strong> para testar o produto</p>
+                    <p>Verifique se o link está funcionando</p>
+                    <p>Teste a experiência do usuário</p>
+                </div>
+
+                <div class="card product-card">
+                    <h4>🎵 Buscar TikTok</h4>
+                    <p>Clique em <strong>"Buscar TikTok"</strong> para abrir pesquisa</p>
+                    <p>Use as palavras-chave sugeridas</p>
+                    <p>Inspire-se em vídeos existentes</p>
+                </div>
+
+                <div class="card product-card">
+                    <h4>📱 WhatsApp Direto</h4>
+                    <p>Mensagem pré-formatada com produto</p>
+                    <p>Inclui todos os links de afiliados</p>
+                    <p>Pronto para compartilhar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- PRODUTOS DISPONÍVEIS -->
+        <div class="section">
+            <h2>🏆 Produtos Disponíveis</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>📱 Produtos Premium</h3>
+                    <div style="margin: 1rem 0;">
+                        <div><strong>iPhone 15 Pro Max</strong> <span class="price">R$ 9.999,99</span></div>
+                        <div><strong>Samsung Galaxy S24 Ultra</strong> <span class="price">R$ 8.999,99</span></div>
+                        <div><strong>MacBook Air M3</strong> <span class="price">R$ 12.999,99</span></div>
+                        <div><strong>Apple Watch Series 9</strong> <span class="price">R$ 3.999,99</span></div>
+                    </div>
+                    <p><em>Alta comissão • Produtos de luxo</em></p>
+                </div>
+
+                <div class="card">
+                    <h3>💎 Custo-Benefício</h3>
+                    <div style="margin: 1rem 0;">
+                        <div><strong>Xiaomi Redmi Note 13 Pro</strong> <span class="price">R$ 2.499,99</span></div>
+                        <div><strong>Dell Inspiron 15 Gamer</strong> <span class="price">R$ 5.999,99</span></div>
+                        <div><strong>JBL Flip 6</strong> <span class="price">R$ 899,99</span></div>
+                        <div><strong>Apple Watch SE</strong> <span class="price">R$ 1.999,99</span></div>
+                    </div>
+                    <p><em>Boa margem • Fácil conversão</em></p>
+                </div>
+
+                <div class="card">
+                    <h3>🎮 Entretenimento</h3>
+                    <div style="margin: 1rem 0;">
+                        <div><strong>PlayStation 5</strong> <span class="price">R$ 3.999,99</span></div>
+                        <div><strong>GoPro Hero 12</strong> <span class="price">R$ 2.999,99</span></div>
+                        <div><strong>iPad Air 5</strong> <span class="price">R$ 5.999,99</span></div>
+                    </div>
+                    <p><em>Alto engajamento • Público jovem</em></p>
+                </div>
+
+                <div class="card">
+                    <h3>🏠 Casa & Lifestyle</h3>
+                    <div style="margin: 1rem 0;">
+                        <div><strong>Robot Aspirador Xiaomi</strong> <span class="price">R$ 1.499,99</span></div>
+                        <div><strong>Dyson Airwrap</strong> <span class="price">R$ 3.999,99</span></div>
+                    </div>
+                    <p><em>Nicho específico • Público feminino</em></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUGESTÕES TIKTOK -->
+        <div class="section" id="tiktok">
+            <h2>🎵 Aba "Sugestões TikTok"</h2>
+            
+            <div class="warning">
+                <strong>🎯 O que você encontra:</strong><br>
+                • Ideias de conteúdo para cada categoria<br>
+                • Hashtags otimizadas para TikTok<br>
+                • Links de afiliados para descrição<br>
+                • Estratégias por tipo de produto
+            </div>
+
+            <h3>💡 Ideias de Conteúdo por Categoria</h3>
+            <div class="grid">
+                <div class="card strategy-card">
+                    <h4>📱 Smartphones</h4>
+                    <ul>
+                        <li>📱 Unboxing do produto</li>
+                        <li>📊 Comparação com outros modelos</li>
+                        <li>🎥 Teste da câmera</li>
+                        <li>⚡ Teste de velocidade</li>
+                        <li>💡 Dicas e truques</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <span class="hashtag">#smartphone</span>
+                        <span class="hashtag">#tecnologia</span>
+                        <span class="hashtag">#unboxing</span>
+                        <span class="hashtag">#review</span>
+                        <span class="hashtag">#dicas</span>
+                    </div>
+                </div>
+
+                <div class="card strategy-card">
+                    <h4>💻 Notebooks</h4>
+                    <ul>
+                        <li>💻 Setup completo</li>
+                        <li>🎮 Teste de jogos</li>
+                        <li>📝 Produtividade</li>
+                        <li>🔧 Configurações</li>
+                        <li>📊 Benchmark</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <span class="hashtag">#notebook</span>
+                        <span class="hashtag">#setup</span>
+                        <span class="hashtag">#produtividade</span>
+                        <span class="hashtag">#trabalho</span>
+                        <span class="hashtag">#tech</span>
+                    </div>
+                </div>
+
+                <div class="card strategy-card">
+                    <h4>🎮 Games</h4>
+                    <ul>
+                        <li>🎮 Gameplay exclusivo</li>
+                        <li>🏆 Conquistas e troféus</li>
+                        <li>👥 Multiplayer com amigos</li>
+                        <li>🎯 Dicas de jogos</li>
+                        <li>📈 Evolução no jogo</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <span class="hashtag">#gaming</span>
+                        <span class="hashtag">#playstation</span>
+                        <span class="hashtag">#gameplay</span>
+                        <span class="hashtag">#gamer</span>
+                        <span class="hashtag">#jogos</span>
+                    </div>
+                </div>
+
+                <div class="card strategy-card">
+                    <h4>🎧 Audio</h4>
+                    <ul>
+                        <li>🎵 Teste de qualidade sonora</li>
+                        <li>🎉 Festa com caixa de som</li>
+                        <li>🏃 Treino com fones</li>
+                        <li>🎤 Karaokê em casa</li>
+                        <li>🔊 Comparação de volume</li>
+                    </ul>
+                    <div style="margin-top: 1rem;">
+                        <span class="hashtag">#audio</span>
+                        <span class="hashtag">#musica</span>
+                        <span class="hashtag">#som</span>
+                        <span class="hashtag">#festa</span>
+                        <span class="hashtag">#qualidade</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ESTRATÉGIAS DE SUCESSO -->
+        <div class="section" id="estrategias">
+            <h2>💡 Estratégias de Sucesso</h2>
+            
+            <div class="grid">
+                <div class="card">
+                    <h3>🎵 Para TikTok</h3>
+                    <ol>
+                        <li><strong>Unboxing:</strong> Mostre o produto sendo aberto</li>
+                        <li><strong>Comparações:</strong> Compare com produtos similares</li>
+                        <li><strong>Testes:</strong> Demonstre funcionalidades</li>
+                        <li><strong>Reviews:</strong> Dê sua opinião sincera</li>
+                        <li><strong>Tutoriais:</strong> Ensine como usar</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>📱 Para Redes Sociais</h3>
+                    <ol>
+                        <li><strong>Instagram:</strong> Stories e posts com links na bio</li>
+                        <li><strong>Facebook:</strong> Grupos e páginas especializadas</li>
+                        <li><strong>YouTube:</strong> Vídeos detalhados com links</li>
+                        <li><strong>WhatsApp:</strong> Grupos de interesse</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>💻 Para Blog/Website</h3>
+                    <ol>
+                        <li><strong>Reviews detalhados</strong> com links de afiliados</li>
+                        <li><strong>Comparativos</strong> entre produtos</li>
+                        <li><strong>Guias de compra</strong> por categoria</li>
+                        <li><strong>Artigos informativos</strong> com CTAs</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3>🎯 Dicas de Marketing</h3>
+                    <div class="warning" style="margin: 1rem 0;">
+                        <strong>🔑 Conteúdo Autêntico</strong><br>
+                        • Seja sincero sobre os produtos<br>
+                        • Mostre experiências reais<br>
+                        • Evite promessas exageradas
+                    </div>
+                    <div class="success" style="margin: 1rem 0;">
+                        <strong>📊 Consistência</strong><br>
+                        • Poste regularmente<br>
+                        • Mantenha padrão visual<br>
+                        • Interaja com audiência
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LINKS POR PLATAFORMA -->
+        <div class="section" id="plataformas">
+            <h2>🔗 Links de Afiliados por Plataforma</h2>
+            
+            <div class="platform shopee">
+                <h3>🟡 Shopee</h3>
+                <p><strong>Formato:</strong> <code>https://shopee.com.br/produto?affiliate_id=novidadesp</code></p>
+                <p><strong>Comissão:</strong> Variável por categoria (2% - 8%)</p>
+                <p><strong>Pagamento:</strong> Mensal via PIX</p>
+                <a href="https://shopee.com.br/affiliate" target="_blank" class="btn">📝 Cadastrar-se</a>
+            </div>
+
+            <div class="platform mercadolivre">
+                <h3>🔵 Mercado Livre</h3>
+                <p><strong>Formato:</strong> <code>https://produto.mercadolivre.com.br/produto?affiliate=novidadesp</code></p>
+                <p><strong>Comissão:</strong> Por venda realizada (1% - 12%)</p>
+                <p><strong>Pagamento:</strong> Quinzenal na conta ML</p>
+                <a href="https://mercadolivre.com.br/afiliados" target="_blank" class="btn">📝 Cadastrar-se</a>
+            </div>
+
+            <div class="platform amazon">
+                <h3>🟠 Amazon</h3>
+                <p><strong>Formato:</strong> <code>https://amazon.com.br/produto?tag=novidadesp-20</code></p>
+                <p><strong>Comissão:</strong> Porcentagem do valor (1% - 10%)</p>
+                <p><strong>Pagamento:</strong> Mensal via transferência</p>
+                <a href="https://associados.amazon.com.br" target="_blank" class="btn">📝 Cadastrar-se</a>
+            </div>
+        </div>
+
+        <!-- INTEGRAÇÃO WHATSAPP -->
+        <div class="section" id="whatsapp">
+            <h2>📱 Integração com WhatsApp</h2>
+            
+            <div class="card">
+                <h3>📝 Mensagem Automática Inclui:</h3>
+                <div style="background: #f8f9fa; padding: 1rem; border-radius: 8px; margin: 1rem 0; font-family: monospace;">
+🛍️ *Nome do produto*<br><br>
+💰 *Preço: R$ XX,XX*<br><br>
+📱 *Onde comprar:*<br>
+🟡 Shopee: [link]<br>
+🔵 Mercado Livre: [link]<br>
+🟠 Amazon: [link]<br><br>
+📞 *Dúvidas? Chama no WhatsApp!*
+                </div>
+            </div>
+
+            <div class="success">
+                <h3>✨ Como Personalizar:</h3>
+                <ol>
+                    <li>Acesse <code>client/src/pages/Products.js</code></li>
+                    <li>Modifique a função <code>handleWhatsApp</code></li>
+                    <li>Adicione emojis e formatação</li>
+                    <li>Teste antes de usar</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- PRÓXIMOS PASSOS -->
+        <div class="section">
+            <h2>🚀 Próximos Passos</h2>
+            
+            <div class="steps">
+                <div class="step">
+                    <h3>Teste todos os links</h3>
+                    <p>Garanta que todos os links de afiliados estão funcionando corretamente</p>
+                </div>
+                <div class="step">
+                    <h3>Crie conteúdo</h3>
+                    <p>Use as sugestões do TikTok para criar vídeos engajantes</p>
+                </div>
+                <div class="step">
+                    <h3>Monitore resultados</h3>
+                    <p>Acompanhe cliques e conversões nas plataformas</p>
+                </div>
+                <div class="step">
+                    <h3>Expanda para outras redes</h3>
+                    <p>Use o conteúdo em Instagram, YouTube e outras plataformas</p>
+                </div>
+                <div class="step">
+                    <h3>Construa relacionamento</h3>
+                    <p>Interaja com sua audiência e construa confiança</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SUPORTE -->
+        <div class="section" style="background: linear-gradient(45deg, #25D366, #128C7E); color: white;">
+            <h2 style="color: white; border-color: white;">📞 Suporte</h2>
+            <div class="grid">
+                <div>
+                    <h3>💬 WhatsApp Business</h3>
+                    <p style="font-size: 1.2rem;"><strong>11 914405349</strong></p>
+                    <a href="https://wa.me/5511914405349" class="btn" style="background: white; color: #25D366;">Chamar Agora</a>
+                </div>
+                <div>
+                    <h3>📧 Email</h3>
+                    <p><strong>contato@novidadesp.com.br</strong></p>
+                    <p>Horário: Segunda a Sexta, 9h às 18h</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="hero">
+            <h2 style="color: white; border: none;">💡 Lembre-se</h2>
+            <p style="font-size: 1.2rem;">O sucesso no marketing de afiliados depende da qualidade do seu conteúdo e da confiança que você constrói com sua audiência.</p>
+            <p style="font-size: 1.1rem; margin-top: 1rem;"><strong>Seja autêntico, consistente e sempre priorize o valor para seus seguidores!</strong></p>
+            <a href="#" class="btn" style="background: white; color: #25D366; margin-top: 1rem;">🚀 Começar a Lucrar</a>
+        </div>
+    </div>
+</body>
+</html>

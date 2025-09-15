@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload para GitHub - Loja Ecommerce</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 2rem; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 2rem; }
+        h1 { color: #333; margin-bottom: 1rem; text-align: center; }
+        .step { background: #f8f9fa; padding: 1.5rem; margin: 1rem 0; border-radius: 10px; border-left: 5px solid #25D366; }
+        .btn { display: inline-block; padding: 15px 30px; background: #25D366; color: white; text-decoration: none; border-radius: 25px; font-weight: bold; margin: 10px; transition: all 0.3s ease; border: none; cursor: pointer; font-size: 1rem; }
+        .btn:hover { background: #128C7E; transform: translateY(-2px); }
+        .btn-github { background: #333; }
+        .btn-github:hover { background: #000; }
+        .input-group { margin: 1rem 0; }
+        .input-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .input-group input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        .warning { background: #fff3cd; border: 2px solid #ffc107; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .success { background: #d4edda; border: 2px solid #28a745; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .code { background: #2d3748; color: #e2e8f0; padding: 1rem; border-radius: 8px; font-family: monospace; margin: 1rem 0; }
+        .hidden { display: none; }
+        .progress { width: 100%; height: 20px; background: #f0f0f0; border-radius: 10px; overflow: hidden; margin: 1rem 0; }
+        .progress-bar { height: 100%; background: #25D366; width: 0%; transition: width 0.3s ease; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>🚀 Upload Automático para GitHub</h1>
+            <p style="text-align: center; margin-bottom: 2rem;">Interface simples para enviar sua loja para o GitHub</p>
+
+            <!-- PASSO 1: CONFIGURAÇÃO -->
+            <div id="step1">
+                <div class="step">
+                    <h3>📝 Passo 1: Configure seus dados</h3>
+                    
+                    <div class="input-group">
+                        <label>Seu username do GitHub:</label>
+                        <input type="text" id="githubUser" placeholder="Ex: joaosilva" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Nome do repositório:</label>
+                        <input type="text" id="repoName" value="loja-whatsapp-ecommerce" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>Seu token do GitHub (opcional - para repositórios privados):</label>
+                        <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
+                        <small>Como obter: GitHub > Settings > Developer settings > Personal access tokens</small>
+                    </div>
+                    
+                    <button class="btn" onclick="validateAndProceed()">✅ Validar e Continuar</button>
+                </div>
+            </div>
+
+            <!-- PASSO 2: LINKS DIRETOS -->
+            <div id="step2" class="hidden">
+                <div class="success">
+                    <h3>✨ Links Prontos para Você!</h3>
+                    <p>Clique nos botões abaixo para fazer o upload:</p>
+                </div>
+
+                <div class="step">
+                    <h4>🔗 Método 1: Upload Direto (Mais Fácil)</h4>
+                    <p>Clique no botão abaixo para abrir o GitHub e fazer upload dos arquivos:</p>
+                    <a id="uploadLink" href="#" target="_blank" class="btn btn-github">📤 Abrir GitHub para Upload</a>
+                </div>
+
+                <div class="step">
+                    <h4>🌐 Método 2: Criar Repositório</h4>
+                    <p>Se o repositório não existir, crie primeiro:</p>
+                    <a id="createRepoLink" href="#" target="_blank" class="btn">➕ Criar Repositório</a>
+                </div>
+
+                <div class="step">
+                    <h4>⚙️ Método 3: GitHub Desktop</h4>
+                    <p>Use o aplicativo oficial do GitHub:</p>
+                    <a href="https://desktop.github.com/" target="_blank" class="btn">📱 Baixar GitHub Desktop</a>
+                </div>
+            </div>
+
+            <!-- PASSO 3: INSTRUÇÕES -->
+            <div id="step3" class="hidden">
+                <div class="step">
+                    <h3>📋 Instruções de Upload</h3>
+                    
+                    <h4>📁 Arquivos para Upload:</h4>
+                    <ul>
+                        <li>✅ Todos os arquivos .html (index, admin, tutorial, etc.)</li>
+                        <li>✅ Pasta client/ completa</li>
+                        <li>✅ Pasta routes/ completa</li>
+                        <li>✅ Arquivos .json, .md, .js</li>
+                        <li>❌ NÃO envie: COMANDOS.bat</li>
+                    </ul>
+
+                    <h4>🔄 Após o Upload:</h4>
+                    <ol>
+                        <li>Vá em Settings > Pages no seu repositório</li>
+                        <li>Source: Deploy from a branch</li>
+                        <li>Branch: main ou gh-pages</li>
+                        <li>Folder: / (root)</li>
+                        <li>Aguarde alguns minutos</li>
+                    </ol>
+
+                    <div class="success">
+                        <strong>🎉 Sua loja estará em:</strong><br>
+                        <code id="finalUrl">https://SEU_USUARIO.github.io/loja-whatsapp-ecommerce</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BOTÕES DE NAVEGAÇÃO -->
+            <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn" onclick="showStep(2)" id="btn-step2" style="display: none;">📤 Ver Links de Upload</button>
+                <button class="btn" onclick="showStep(3)" id="btn-step3" style="display: none;">📋 Ver Instruções</button>
+                <button class="btn" onclick="showStep(1)">🔄 Voltar ao Início</button>
+            </div>
+        </div>
+
+        <!-- CARD DE AJUDA -->
+        <div class="card">
+            <h3>🆘 Precisa de Ajuda?</h3>
+            <p>Se tiver dificuldades, entre em contato:</p>
+            <div style="text-align: center; margin-top: 1rem;">
+                <a href="https://wa.me/5511914405349?text=Preciso de ajuda com upload da loja no GitHub" class="btn">💬 WhatsApp Suporte</a>
+                <a href="mailto:contato@novidadesp.com.br" class="btn btn-github">📧 Email</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateAndProceed() {
+            const user = document.getElementById('githubUser').value.trim();
+            const repo = document.getElementById('repoName').value.trim();
+            
+            if (!user) {
+                alert('❌ Por favor, digite seu username do GitHub');
+                return;
+            }
+            
+            if (!repo) {
+                alert('❌ Por favor, digite o nome do repositório');
+                return;
+            }
+            
+            // Atualizar links
+            const uploadLink = document.getElementById('uploadLink');
+            const createRepoLink = document.getElementById('createRepoLink');
+            const finalUrl = document.getElementById('finalUrl');
+            
+            uploadLink.href = `https://github.com/${user}/${repo}/upload/main`;
+            createRepoLink.href = `https://github.com/new?name=${repo}&description=Loja%20WhatsApp%20Ecommerce`;
+            finalUrl.textContent = `https://${user}.github.io/${repo}`;
+            
+            // Mostrar próximo passo
+            showStep(2);
+            
+            // Atualizar package.json automaticamente
+            updatePackageJson(user, repo);
+        }
+        
+        function showStep(step) {
+            // Esconder todos os steps
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step3').classList.add('hidden');
+            
+            // Mostrar step selecionado
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            
+            // Mostrar/esconder botões
+            document.getElementById('btn-step2').style.display = step >= 2 ? 'inline-block' : 'none';
+            document.getElementById('btn-step3').style.display = step >= 2 ? 'inline-block' : 'none';
+        }
+        
+        function updatePackageJson(user, repo) {
+            const homepage = `https://${user}.github.io/${repo}`;
+            
+            const warning = document.createElement('div');
+            warning.className = 'warning';
+            warning.innerHTML = `
+                <strong>⚠️ IMPORTANTE:</strong> Antes de fazer upload, edite estes arquivos:<br><br>
+                <strong>1. package.json (raiz):</strong><br>
+                <code>"homepage": "${homepage}"</code><br><br>
+                <strong>2. client/package.json:</strong><br>
+                <code>"homepage": "${homepage}"</code><br><br>
+                Substitua a linha homepage pelos valores acima.
+            `;
+            
+            document.getElementById('step2').appendChild(warning);
+        }
+        
+        // Mostrar step 1 inicialmente
+        showStep(1);
+    </script>
+</body>
+</html>

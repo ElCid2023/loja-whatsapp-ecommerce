@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Gerenciar Loja</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; text-align: center; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .tabs { display: flex; background: white; border-radius: 10px; margin-bottom: 2rem; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .tab { flex: 1; padding: 1rem; text-align: center; cursor: pointer; background: #f8f9fa; border: none; font-size: 1rem; font-weight: bold; }
+        .tab.active { background: #25D366; color: white; }
+        .tab:hover { background: #e9ecef; }
+        .tab.active:hover { background: #128C7E; }
+        .content { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #333; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: #25D366; outline: none; }
+        .btn { padding: 12px 24px; background: #25D366; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1rem; font-weight: bold; margin: 5px; }
+        .btn:hover { background: #128C7E; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        .btn-secondary { background: #6c757d; }
+        .btn-secondary:hover { background: #5a6268; }
+        .product-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-top: 2rem; }
+        .product-card { background: #f8f9fa; padding: 1.5rem; border-radius: 10px; border: 2px solid #ddd; }
+        .product-card h3 { color: #333; margin-bottom: 1rem; }
+        .product-card .price { font-size: 1.2rem; font-weight: bold; color: #25D366; margin: 0.5rem 0; }
+        .hidden { display: none; }
+        .success { background: #d4edda; color: #155724; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .warning { background: #fff3cd; color: #856404; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .preview { background: #f8f9fa; padding: 1rem; border-radius: 8px; border: 2px dashed #ddd; }
+        .code-output { background: #2d3748; color: #e2e8f0; padding: 1rem; border-radius: 8px; font-family: monospace; white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🛠️ Admin - Gerenciar Loja</h1>
+        <p>Interface gráfica para editar produtos e configurações</p>
+    </div>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('produtos')">📦 Produtos</button>
+            <button class="tab" onclick="showTab('config')">⚙️ Configurações</button>
+            <button class="tab" onclick="showTab('afiliados')">💰 Afiliados</button>
+            <button class="tab" onclick="showTab('exportar')">📤 Exportar</button>
+        </div>
+
+        <!-- ABA PRODUTOS -->
+        <div id="produtos" class="content">
+            <h2>📦 Gerenciar Produtos</h2>
+            
+            <div class="form-group">
+                <button class="btn" onclick="showAddProduct()">➕ Adicionar Produto</button>
+                <button class="btn btn-secondary" onclick="loadProducts()">🔄 Recarregar Lista</button>
+            </div>
+
+            <!-- FORMULÁRIO ADICIONAR/EDITAR PRODUTO -->
+            <div id="productForm" class="hidden">
+                <h3 id="formTitle">➕ Adicionar Novo Produto</h3>
+                <form onsubmit="saveProduct(event)">
+                    <div class="grid">
+                        <div>
+                            <div class="form-group">
+                                <label>Nome do Produto</label>
+                                <input type="text" id="productName" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Preço (R$)</label>
+                                <input type="number" id="productPrice" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Categoria</label>
+                                <select id="productCategory" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="Smartphones">Smartphones</option>
+                                    <option value="Notebooks">Notebooks</option>
+                                    <option value="Games">Games</option>
+                                    <option value="Audio">Audio</option>
+                                    <option value="Wearables">Wearables</option>
+                                    <option value="Casa">Casa</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>URL da Imagem</label>
+                                <input type="url" id="productImage" placeholder="https://...">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <textarea id="productDescription" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Link Shopee</label>
+                                <input type="url" id="linkShopee" placeholder="https://shopee.com.br/...">
+                            </div>
+                            <div class="form-group">
+                                <label>Link Mercado Livre</label>
+                                <input type="url" id="linkML" placeholder="https://mercadolivre.com.br/...">
+                            </div>
+                            <div class="form-group">
+                                <label>Link Amazon</label>
+                                <input type="url" id="linkAmazon" placeholder="https://amazon.com.br/...">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Palavras-chave TikTok (separadas por vírgula)</label>
+                        <input type="text" id="tiktokKeywords" placeholder="palavra1, palavra2, palavra3">
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" id="productFeatured"> Produto em destaque
+                        </label>
+                    </div>
+                    <button type="submit" class="btn">💾 Salvar Produto</button>
+                    <button type="button" class="btn btn-secondary" onclick="cancelEdit()">❌ Cancelar</button>
+                </form>
+            </div>
+
+            <!-- LISTA DE PRODUTOS -->
+            <div id="productsList" class="product-list"></div>
+        </div>
+
+        <!-- ABA CONFIGURAÇÕES -->
+        <div id="config" class="content hidden">
+            <h2>⚙️ Configurações da Loja</h2>
+            
+            <div class="grid">
+                <div>
+                    <div class="form-group">
+                        <label>Nome da Loja</label>
+                        <input type="text" id="storeName" value="NovidadeSP">
+                    </div>
+                    <div class="form-group">
+                        <label>WhatsApp (com código do país)</label>
+                        <input type="text" id="storeWhatsapp" value="5511914405349" placeholder="5511999999999">
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="storeEmail" value="contato@novidadesp.com.br">
+                    </div>
+                    <div class="form-group">
+                        <label>Instagram</label>
+                        <input type="text" id="storeInstagram" value="@novidadesp">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>TikTok</label>
+                <input type="text" id="storeTiktok" value="@novidadesp">
+            </div>
+            <button class="btn" onclick="saveConfig()">💾 Salvar Configurações</button>
+        </div>
+
+        <!-- ABA AFILIADOS -->
+        <div id="afiliados" class="content hidden">
+            <h2>💰 Configurar Links de Afiliados</h2>
+            
+            <div class="warning">
+                <strong>ℹ️ Como configurar:</strong><br>
+                1. Cadastre-se nos programas de afiliados<br>
+                2. Substitua "SEU_ID" pelos seus IDs reais<br>
+                3. Teste os links antes de usar
+            </div>
+
+            <div class="form-group">
+                <label>ID Afiliado Shopee</label>
+                <input type="text" id="affiliateShopee" value="novidadesp" placeholder="seu_id_shopee">
+            </div>
+            <div class="form-group">
+                <label>ID Afiliado Mercado Livre</label>
+                <input type="text" id="affiliateML" value="novidadesp" placeholder="seu_id_mercadolivre">
+            </div>
+            <div class="form-group">
+                <label>Tag Amazon</label>
+                <input type="text" id="affiliateAmazon" value="novidadesp-20" placeholder="seu_id-20">
+            </div>
+            <button class="btn" onclick="saveAffiliates()">💾 Salvar IDs de Afiliados</button>
+
+            <div class="success" style="margin-top: 2rem;">
+                <strong>📋 Links para cadastro:</strong><br>
+                • <a href="https://shopee.com.br/affiliate" target="_blank">Shopee Afiliados</a><br>
+                • <a href="https://mercadolivre.com.br/afiliados" target="_blank">Mercado Livre Afiliados</a><br>
+                • <a href="https://associados.amazon.com.br" target="_blank">Amazon Associados</a>
+            </div>
+        </div>
+
+        <!-- ABA EXPORTAR -->
+        <div id="exportar" class="content hidden">
+            <h2>📤 Exportar Código</h2>
+            
+            <div class="warning">
+                <strong>📝 Instruções:</strong><br>
+                1. Clique em "Gerar Código"<br>
+                2. Copie o código gerado<br>
+                3. Substitua o conteúdo do arquivo <code>client/src/data/products.js</code><br>
+                4. Faça o deploy da loja
+            </div>
+
+            <button class="btn" onclick="generateCode()">🔧 Gerar Código</button>
+            <button class="btn btn-secondary" onclick="copyCode()">📋 Copiar Código</button>
+
+            <div id="generatedCode" class="code-output" style="margin-top: 1rem;"></div>
+        </div>
+    </div>
+
+    <script>
+        let products = [];
+        let editingIndex = -1;
+        let nextId = 1;
+
+        // Carregar dados salvos
+        function loadData() {
+            const savedProducts = localStorage.getItem('storeProducts');
+            if (savedProducts) {
+                products = JSON.parse(savedProducts);
+                nextId = Math.max(...products.map(p => p.id), 0) + 1;
+            } else {
+                // Produtos padrão
+                products = [
+                    {
+                        id: 1,
+                        name: "iPhone 15 Pro Max",
+                        price: 9999.99,
+                        category: "Smartphones",
+                        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=300&h=300&fit=crop",
+                        description: "O mais avançado iPhone já criado",
+                        affiliateLinks: {
+                            shopee: "https://shopee.com.br/iphone-15-pro-max?affiliate_id=novidadesp",
+                            mercadolivre: "https://produto.mercadolivre.com.br/iphone-15-pro-max?affiliate=novidadesp",
+                            amazon: "https://amazon.com.br/iphone-15-pro-max?tag=novidadesp-20"
+                        },
+                        tiktokKeywords: ["iphone15", "apple", "smartphone", "tecnologia", "unboxing"],
+                        featured: true
+                    }
+                ];
+                nextId = 2;
+            }
+            loadProducts();
+        }
+
+        // Mostrar aba
+        function showTab(tabName) {
+            document.querySelectorAll('.content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.getElementById(tabName).classList.remove('hidden');
+            event.target.classList.add('active');
+        }
+
+        // Mostrar formulário de adicionar produto
+        function showAddProduct() {
+            document.getElementById('productForm').classList.remove('hidden');
+            document.getElementById('formTitle').textContent = '➕ Adicionar Novo Produto';
+            document.querySelector('#productForm form').reset();
+            editingIndex = -1;
+        }
+
+        // Salvar produto
+        function saveProduct(event) {
+            event.preventDefault();
+            
+            const product = {
+                id: editingIndex >= 0 ? products[editingIndex].id : nextId++,
+                name: document.getElementById('productName').value,
+                price: parseFloat(document.getElementById('productPrice').value),
+                category: document.getElementById('productCategory').value,
+                image: document.getElementById('productImage').value,
+                description: document.getElementById('productDescription').value,
+                affiliateLinks: {
+                    shopee: document.getElementById('linkShopee').value,
+                    mercadolivre: document.getElementById('linkML').value,
+                    amazon: document.getElementById('linkAmazon').value
+                },
+                tiktokKeywords: document.getElementById('tiktokKeywords').value.split(',').map(k => k.trim()),
+                featured: document.getElementById('productFeatured').checked
+            };
+
+            if (editingIndex >= 0) {
+                products[editingIndex] = product;
+            } else {
+                products.push(product);
+            }
+
+            localStorage.setItem('storeProducts', JSON.stringify(products));
+            loadProducts();
+            cancelEdit();
+            alert('✅ Produto salvo com sucesso!');
+        }
+
+        // Cancelar edição
+        function cancelEdit() {
+            document.getElementById('productForm').classList.add('hidden');
+            editingIndex = -1;
+        }
+
+        // Carregar lista de produtos
+        function loadProducts() {
+            const container = document.getElementById('productsList');
+            container.innerHTML = '';
+
+            products.forEach((product, index) => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <div class="price">R$ ${product.price.toFixed(2)}</div>
+                    <p><strong>Categoria:</strong> ${product.category}</p>
+                    <p><strong>Descrição:</strong> ${product.description}</p>
+                    <p><strong>Destaque:</strong> ${product.featured ? 'Sim' : 'Não'}</p>
+                    <div style="margin-top: 1rem;">
+                        <button class="btn btn-secondary" onclick="editProduct(${index})">✏️ Editar</button>
+                        <button class="btn btn-danger" onclick="deleteProduct(${index})">🗑️ Excluir</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Editar produto
+        function editProduct(index) {
+            const product = products[index];
+            editingIndex = index;
+            
+            document.getElementById('formTitle').textContent = '✏️ Editar Produto';
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productPrice').value = product.price;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productImage').value = product.image;
+            document.getElementById('productDescription').value = product.description;
+            document.getElementById('linkShopee').value = product.affiliateLinks.shopee;
+            document.getElementById('linkML').value = product.affiliateLinks.mercadolivre;
+            document.getElementById('linkAmazon').value = product.affiliateLinks.amazon;
+            document.getElementById('tiktokKeywords').value = product.tiktokKeywords.join(', ');
+            document.getElementById('productFeatured').checked = product.featured;
+            
+            document.getElementById('productForm').classList.remove('hidden');
+        }
+
+        // Excluir produto
+        function deleteProduct(index) {
+            if (confirm('❌ Tem certeza que deseja excluir este produto?')) {
+                products.splice(index, 1);
+                localStorage.setItem('storeProducts', JSON.stringify(products));
+                loadProducts();
+                alert('✅ Produto excluído com sucesso!');
+            }
+        }
+
+        // Salvar configurações
+        function saveConfig() {
+            const config = {
+                name: document.getElementById('storeName').value,
+                whatsapp: document.getElementById('storeWhatsapp').value,
+                email: document.getElementById('storeEmail').value,
+                instagram: document.getElementById('storeInstagram').value,
+                tiktok: document.getElementById('storeTiktok').value
+            };
+            localStorage.setItem('storeConfig', JSON.stringify(config));
+            alert('✅ Configurações salvas com sucesso!');
+        }
+
+        // Salvar afiliados
+        function saveAffiliates() {
+            const affiliates = {
+                shopee: document.getElementById('affiliateShopee').value,
+                mercadolivre: document.getElementById('affiliateML').value,
+                amazon: document.getElementById('affiliateAmazon').value
+            };
+            localStorage.setItem('storeAffiliates', JSON.stringify(affiliates));
+            alert('✅ IDs de afiliados salvos com sucesso!');
+        }
+
+        // Gerar código
+        function generateCode() {
+            const config = JSON.parse(localStorage.getItem('storeConfig') || '{"name":"NovidadeSP","whatsapp":"5511914405349","email":"contato@novidadesp.com.br","instagram":"@novidadesp","tiktok":"@novidadesp"}');
+            
+            const code = `// 📦 BANCO DE DADOS DOS PRODUTOS
+// Gerado automaticamente pelo Admin
+
+export const products = ${JSON.stringify(products, null, 2)};
+
+// 📝 CONFIGURAÇÕES DA LOJA
+export const storeConfig = ${JSON.stringify(config, null, 2)};`;
+
+            document.getElementById('generatedCode').textContent = code;
+        }
+
+        // Copiar código
+        function copyCode() {
+            const code = document.getElementById('generatedCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                alert('📋 Código copiado para a área de transferência!');
+            });
+        }
+
+        // Inicializar
+        window.onload = function() {
+            loadData();
+        };
+    </script>
+</body>
+</html>
